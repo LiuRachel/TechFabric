@@ -13,24 +13,24 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-# - task: UseDotNet@2
-#   inputs:
-#     packageType: 'sdk'
-#     version: '3.0.x'
-#     includePreviewVersions: true
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '3.0.x'
+    includePreviewVersions: true
     
 
-# - task: NuGetToolInstaller@1
-#   inputs:
-#     versionSpec: '5.1.0'
-#     checkLatest: true
+- task: NuGetToolInstaller@1
+  inputs:
+    versionSpec: '5.1.0'
+    checkLatest: true
     
-# - task: NuGetCommand@2
-#   inputs:
-#     command: 'restore'
-#     restoreSolution: '**/*Test/*.csproj'
-#     feedsToUse: 'select'
-#     noCache: true
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*Test/*.csproj'
+    feedsToUse: 'select'
+    noCache: true
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -41,30 +41,30 @@ steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
-# - task: DotNetCoreCLI@2
-#   displayName: 'dotnet build test'
-#   inputs:
-#     projects: '**/*Test/*.csproj'
-#     arguments: '--runtime win-x64'
-#   continueOnError: true
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build test'
+  inputs:
+    projects: '**/*Test/*.csproj'
+    arguments: '--runtime win-x64'
+  continueOnError: true
 
-# - task: DotNetCoreCLI@2
-#   displayName: 'dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-#   inputs:
-#     command: publish
-#     publishWebProjects: false
-#     projects: 'src/TechFabricSln/TechFabricSln.csproj'
-#     arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/TechFabricSln/'
-#     zipAfterPublish: false
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: 'src/TechFabricSln/TechFabricSln.csproj'
+    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)/TechFabricSln/'
+    zipAfterPublish: false
 
-# - task: DotNetCoreCLI@2
-#   displayName: 'dotnet publish test --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-#   inputs:
-#     command: publish
-#     publishWebProjects: false
-#     projects: 'test/TechFabricSln.Test/TechFabricSln.Test.csproj'
-#     arguments: '-p:PublishChromeDriver=true --runtime win-x64 --output $(Build.ArtifactStagingDirectory)/TechFabricSln.Test/'
-#     zipAfterPublish: false
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish test --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+  inputs:
+    command: publish
+    publishWebProjects: false
+    projects: 'test/TechFabricSln.Test/TechFabricSln.Test.csproj'
+    arguments: '-p:PublishChromeDriver=true --runtime win-x64 --output $(Build.ArtifactStagingDirectory)/TechFabricSln.Test/'
+    zipAfterPublish: false
 
-# - task: PublishBuildArtifacts@1
-#   displayName: 'publish artifacts'
+- task: PublishBuildArtifacts@1
+  displayName: 'publish artifacts'
