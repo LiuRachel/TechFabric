@@ -11,14 +11,12 @@ namespace TechFabricSln.Test
         [Category("UITests")]
         public void VisitMicrosoft_CheckWindowsMenu()
         {
-            ChromeOptions chromeOptions = new ChromeOptions();
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--headless");
-            options.AddArgument("--whitelisted-ips=");
-            options.AddArgument("--no-sandbox");
+            options.AddArgument("--whitelisted-ips");
+            options.AddArgument("--no-sandbox")
             options.AddArgument("--disable-extensions");
-            options.AddArgument("--port=");
-            IWebDriver driver = new ChromeDriver(chromeOptions);
+            IWebDriver driver = new ChromeDriver(options);
             driver.Navigate().GoToUrl("https://www.microsoft.com/");
 
             Thread.Sleep(10000);
