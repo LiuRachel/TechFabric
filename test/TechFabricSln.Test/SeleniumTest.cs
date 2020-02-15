@@ -14,10 +14,10 @@ namespace TechFabricSln.Test
             ChromeOptions chromeOptions = new ChromeOptions();
             ChromeOptions options = new ChromeOptions();
             options.AddArgument("--headless");
-            options.AddArgument("--whitelisted-ips");
+            options.AddArgument("--whitelisted-ips=");
             options.AddArgument("--no-sandbox");
             options.AddArgument("--disable-extensions");
-            options.AddArgument("--port=1602");
+            options.AddArgument("--port=");
             IWebDriver driver = new ChromeDriver(chromeOptions);
             driver.Navigate().GoToUrl("https://www.microsoft.com/");
 
