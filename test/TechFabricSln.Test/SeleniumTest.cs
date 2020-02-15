@@ -11,9 +11,9 @@ namespace TechFabricSln.Test
         [Category("UITests")]
         public void VisitMicrosoft_CheckWindowsMenu()
         {
-             ChromeOptions chromeOptions = new ChromeOptions();
-            chromeOptions.addArguments("--verbose");
-            chromeOptions.addArguments("--whitelisted-ips=''");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.AddArguments("--verbose");
+            chromeOptions.AddArguments("--whitelisted-ips=''");
             IWebDriver driver = new ChromeDriver(chromeOptions);
             driver.Navigate().GoToUrl("https://www.microsoft.com/");
 
