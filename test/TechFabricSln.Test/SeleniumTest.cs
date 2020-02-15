@@ -17,6 +17,7 @@ namespace TechFabricSln.Test
             options.AddArgument("--whitelisted-ips");
             options.AddArgument("--no-sandbox");
             options.AddArgument("--disable-extensions");
+            options.AddArgument("--port=1602");
             IWebDriver driver = new ChromeDriver(chromeOptions);
             driver.Navigate().GoToUrl("https://www.microsoft.com/");
 
