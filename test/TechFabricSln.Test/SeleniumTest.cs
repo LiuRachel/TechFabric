@@ -11,9 +11,11 @@ namespace TechFabricSln.Test
         [Category("UITests")]
         public void VisitMicrosoft_CheckWindowsMenu()
         {
-            ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--port=9000");
-            IWebDriver driver = new ChromeDriver(options);
+            var service = ChromeDriverService.CreateDefaultService();
+            service.WhitelistedIPAddresses = "0.0.0.0";
+            service.LogPath = "C:\\chromedriver.log";
+            service.EnableVerboseLogging = true;
+            IWebDriver driver = new ChromeDriver(service);
             driver.Navigate().GoToUrl("https://www.microsoft.com/");
 
             Thread.Sleep(10000);
