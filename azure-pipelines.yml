@@ -66,5 +66,12 @@ steps:
     arguments: '-p:PublishChromeDriver=true --runtime win-x64 --output $(Build.ArtifactStagingDirectory)/TechFabricSln.Test/'
     zipAfterPublish: false
 
+- powershell: |
+   (Get-Item "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe").VersionInfo 
+  displayName: 'We want to know the Chrome version installed on this darned machine'
+
+- pwsh: |
+    chromeDriver -v
+  displayName: Echo Chrome WebDriver version
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifacts'
