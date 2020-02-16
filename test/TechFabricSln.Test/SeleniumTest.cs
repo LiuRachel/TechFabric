@@ -12,10 +12,10 @@ namespace TechFabricSln.Test
         public void VisitMicrosoft_CheckWindowsMenu()
         {
             var service = ChromeDriverService.CreateDefaultService();
-            service.WhitelistedIPAddresses = "104.75.174.50";
+            //service.WhitelistedIPAddresses = "";
             service.EnableVerboseLogging = true;
             IWebDriver driver = new ChromeDriver(service);
-            driver.Navigate().GoToUrl("104.75.174.50");
+            driver.Navigate().GoToUrl("https://www.microsoft.com");
 
             Thread.Sleep(10000);
 
