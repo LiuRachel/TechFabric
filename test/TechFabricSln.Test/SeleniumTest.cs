@@ -12,8 +12,7 @@ namespace TechFabricSln.Test
         public void VisitMicrosoft_CheckWindowsMenu()
         {
             var service = ChromeDriverService.CreateDefaultService();
-            service.WhitelistedIPAddresses = "0.0.0.0";
-            service.LogPath = "C:\\chromedriver.log";
+            service.WhitelistedIPAddresses = "";
             service.EnableVerboseLogging = true;
             IWebDriver driver = new ChromeDriver(service);
             driver.Navigate().GoToUrl("https://www.microsoft.com/");
