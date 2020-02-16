@@ -12,7 +12,7 @@ namespace TechFabricSln.Test
         public void VisitMicrosoft_CheckWindowsMenu()
         {
             ChromeOptions options = new ChromeOptions();
-            options.AddArgument("--whitelisted-ips=0.0.0.0");
+            options.AddArgument("--port=9000");
             IWebDriver driver = new ChromeDriver(options);
             driver.Navigate().GoToUrl("https://www.microsoft.com/");
 
